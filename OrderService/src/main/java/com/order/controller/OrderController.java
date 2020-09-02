@@ -40,8 +40,10 @@ public class OrderController {
 	}
 
 	@PostMapping("/order")
-	private int savePerson(@RequestBody Order order) {
+	private int saveOrder(@RequestBody Order order) {
 		orderService.saveOrUpdate(order);
+		List<Item> items = order.getOrderItems();
+		orderService.saveOrderItem(items);
 		return order.getOrderId();
 	}
 
@@ -49,5 +51,6 @@ public class OrderController {
 	private Item getOrderItemById(@PathVariable("id") int id) {
 		return orderService.getOrderItem(id);
 	}
+	
 
 }

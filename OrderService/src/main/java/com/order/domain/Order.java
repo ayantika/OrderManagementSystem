@@ -1,23 +1,21 @@
 package com.order.domain;
+
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
-import lombok.Data;
-
-
-@Table(name = "ORDER")
 @Entity
+@Table(name = "ORDERTABLE")
 public class Order {
-	
+
 	public Integer getOrderId() {
 		return orderId;
 	}
@@ -60,18 +58,18 @@ public class Order {
 
 	@Id
 	@GeneratedValue
-	Integer orderId;
-	
-	@Size(min=2, message="Name should have atleast 2 characters")
+	int orderId;
+
+	@Size(min = 2, message = "Name should have atleast 2 characters")
 	String customerName;
-	
+
 	String shippngAddress;
-	
+
 	Date orderDate;
 
+	@Transient
 	List<Item> orderItems;
-	
-	@OneToMany(targetEntity=Item.class, mappedBy="order",fetch=FetchType.EAGER)
+
 	public List<Item> getOrderItems() {
 		return orderItems;
 	}
@@ -81,5 +79,5 @@ public class Order {
 	}
 
 	double price;
-	
+
 }

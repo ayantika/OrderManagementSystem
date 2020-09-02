@@ -1,4 +1,4 @@
-package com.order.item.dto;
+package com.order.item.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

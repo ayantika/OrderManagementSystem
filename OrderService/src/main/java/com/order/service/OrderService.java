@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.order.controller.OrderItemFeignClient;
-import com.order.domain.Order;
 import com.order.domain.Item;
+import com.order.domain.Order;
 
 
 @Service
@@ -43,6 +43,10 @@ public class OrderService {
 	
 	public Item getOrderItem(Integer id) {
 		return orderItemFeignClient.getOrderItem(id);
+	}
+	
+	public void saveOrderItem(List<Item> orderItems) {
+		orderItems.forEach(item -> orderItemFeignClient.saveOrderItems(item));
 	}
 
 }

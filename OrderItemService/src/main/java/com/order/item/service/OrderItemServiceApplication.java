@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan({"com.order.item.*"})
-@EntityScan({"com.order.item.dto"})
+@EntityScan({"com.order.item.domain"})
 public class OrderItemServiceApplication {
 
 	public static void main(String[] args) {

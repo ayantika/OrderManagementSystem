@@ -1,14 +1,21 @@
 package com.order.domain;
 
-import lombok.Data;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
 
-
-@Data
+@Getter
+@Setter
+@Entity
+@Table(name = "ITEM")
 public class Item {
 
 	String name;
-
+	
+	@Id
 	Integer code;
 
 	int quantity;
